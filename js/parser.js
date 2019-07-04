@@ -10,10 +10,11 @@ function getCurrentOptions(body) {
     let tables = body.split("<table border=\"0\" cellspacing=\"0\" cellpadding=\"3\">")
     for (let i = 1; i < tables.length; i++) {
         let options = tables[i].split("</table")[0];
+        let temparray = [];
         options.split("href=\"").forEach(element => {
             let opts = element.split(/\"><span class=\"h.\">/);
             if (opts.length > 1)
-                optarray.push([opts[0], opts[1].split("<")[0]]);
+                temparray.push([opts[0], opts[1].split("<")[0]]);
         });
         optarray.push(temparray);
     }

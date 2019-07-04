@@ -1,9 +1,12 @@
 function renderPage(optArray){
     let v = document.getElementById("viewer");
     v.innerHTML="";
-    optArray.forEach(element => {
-        v.innerHTML+="<button onclick=\"nextPage('"+element[0]+"')\" value='"+element[1]+"'>"+element[1]+"</button>";
-    })
+    optArray.array.forEach(elem => {
+        elem.forEach(element => {
+            v.innerHTML+="<button onclick=\"nextPage('"+element[0]+"')\" value='"+element[1]+"'>"+element[1]+"</button>";
+        }) 
+    });
+    
 }
 
 function nextPage(rellink){
